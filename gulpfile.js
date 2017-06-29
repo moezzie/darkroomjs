@@ -93,6 +93,9 @@ gulp.task('scripts', function () {
       .pipe(isDebug ? gutil.noop() : uglify({mangle: false}))
     .pipe(isDebug ? sourcemaps.write() : gutil.noop())
     .pipe(gulp.dest(distDir))
+
+  gulp.src([distDir + '/*'])
+    .pipe(gulp.dest('./demo/build/'))
 })
 
 //
